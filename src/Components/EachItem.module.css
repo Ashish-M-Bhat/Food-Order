@@ -1,0 +1,24 @@
+.ItemDetails {
+    display: flex;
+    border-radius: 40px;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    background-color:aquamarine;
+    color:red;
+    width: 500px;
+    margin: 30px 400px 20px 650px;    
+}
+.listOfItems {
+    padding: 0px;
+    list-style-type: none;
+    font-size:small;
+}
+.AddToCart{
+    float: right;
+}
+input{
+    margin-top:10px;
+    background-color: blanchedalmond;
+    width: 35px;
+    height: 15px;
+}

@@ -1,0 +1,11 @@
+.NavigationItems{
+    list-style-type: none;
+    background-color: rgb(178, 233, 152);
+    color:red;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    position: fixed;
+    top:0;
+    width: 100%
+}

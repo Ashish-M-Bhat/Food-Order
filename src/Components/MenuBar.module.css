@@ -1,0 +1,12 @@
+.MenuBar{
+    list-style-type: none;
+    background-color: rgb(178, 233, 152);
+    color:red;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin-top: 40px ;
+    margin-bottom: 40px;
+    margin-left: 450px;
+    width: 50%;
+}
