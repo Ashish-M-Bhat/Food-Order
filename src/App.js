@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import './App.css';
-import NavBar from './Components/NavBar';
+import NavBar from './Components/NavigationBar/NavBar';
 import MenuItemsContext, { MENU } from './Components/context-api/MenuItemsContext'
-import ListItems from './Components/ListItems';
 import { useReducer } from 'react';
-import About from './Components/UI/About';
-import MenuBar from './Components/MenuBar';
+import About from './Components/About/About';
+import MenuBar from './Components/MenuBar/MenuBar';
+import ListItems from './Components/MenuItems/ListItems';
 
 const reducerCart = (cart, action) =>{
   const item = { id:action.payload.id, title:action.payload.title, amount:action.payload.amount, countOfItems:action.payload.countOfItems};

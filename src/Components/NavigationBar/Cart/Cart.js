@@ -1,8 +1,8 @@
-import Button from "./UI/Button";
 import cssClasses from "./Cart.module.css";
 import { useContext, useState } from "react";
-import MenuItemsContext from "./context-api/MenuItemsContext";
 import CartModal from "./CartModal";
+import MenuItemsContext from "../../context-api/MenuItemsContext";
+import Button from "../../UI/Button";
 
 export default function Cart() {
     const [callCartModal, setCallCartModal] = useState(false);

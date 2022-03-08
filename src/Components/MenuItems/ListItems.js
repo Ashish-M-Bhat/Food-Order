@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import MenuItemsContext from "./context-api/MenuItemsContext";
+import MenuItemsContext from "../context-api/MenuItemsContext";
 import EachItem from "./EachItem";
 
 export default function ListItems(props){

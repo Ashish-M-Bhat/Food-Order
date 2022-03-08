@@ -1,4 +1,4 @@
-import Cart from './Cart';
+import Cart from './Cart/Cart';
 import cssClasses from './NavBar.module.css'
 
 const NavBar = () =>{

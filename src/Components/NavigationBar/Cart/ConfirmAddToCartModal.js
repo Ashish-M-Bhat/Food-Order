@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
+import MenuItemsContext from '../../context-api/MenuItemsContext';
+import Button from '../../UI/Button';
 import cssClasses from './ConfirmAddToCartModal.module.css'
-import MenuItemsContext from './context-api/MenuItemsContext';
-import Button from './UI/Button';
 const ConfirmAddToCartModal = (props)=>{
 
     const ctx = useContext(MenuItemsContext);

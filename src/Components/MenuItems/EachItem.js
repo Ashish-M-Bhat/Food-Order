@@ -1,8 +1,8 @@
 import { useState, useReducer } from 'react';
-import ConfirmAddToCartModal from './ConfirmAddToCartModal'
-import AnimationOnAddToCart from './AnimationOnAddToCart';
+import AnimationOnAddToCart from '../NavigationBar/Cart/AnimationOnAddToCart';
 import cssClasses from './EachItem.module.css'
-import Button from './UI/Button';
+import Button from '../UI/Button';
+import ConfirmAddToCartModal from '../NavigationBar/Cart/ConfirmAddToCartModal'
 
 const reducerConfirmAddToCart = (confirmAddToCartState, action)=>{
     if (action.type === 'callConfirmAddToCart'){

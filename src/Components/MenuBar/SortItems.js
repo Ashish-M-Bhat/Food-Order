@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import MenuItemsContext from './context-api/MenuItemsContext'
+import MenuItemsContext from '../context-api/MenuItemsContext';
 import cssClasses from './SortItems.module.css'
 
 export default function SortItems(props) {
