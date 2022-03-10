@@ -14,7 +14,7 @@ const Overlay = (props)=>{
     const displayCartItems = ()=>{
         if(props.cart.length ===0)
         return(
-            <h2 style={{'text-align':'center'}}>Sir, Your Cart is Empty!</h2>
+            <h2 style={{'textAlign':'center'}}>Sir, Your Cart is Empty!</h2>
         )
         let cartArray = props.cart.map((eachCartItem)=>{
             return(

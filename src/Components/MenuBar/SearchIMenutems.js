@@ -9,6 +9,24 @@ export default function SearchIMenutems(props) {
 
     const searchMenuItemIputHandler = (event)=>{
         setSearchInput(event.target.value);
+
+        // While input is fed, keep searching. Performance goes Brrrrrr!!! Since Re-evaluation & Re-rendering/ Repainting keeps happening.
+        const searchArray = ctx.menu.filter((ob)=>ob.title.includes(event.target.value) || ob.description.includes(event.target.value));
+            props.setMenu(searchArray);
+
+            // If Empty Array, display "Nothing to Display!" through ListItems.js and after 2s, reset the menu and search box.
+            if(!searchArray.length)
+                setTimeout(() => {
+                    props.setMenu(menuBackup);
+                    setSearchInput('');
+                }, 2000);
+            
+            // If empty input, display all the menu items. 
+            if(!event.target.value.trim().length){
+                setSearchInput('');
+                props.setMenu(menuBackup);
+            }
+                
     }
 
     const searchMenuItemHandler = (event) =>
