@@ -11,17 +11,17 @@ export default function SortItems(props) {
         switch(event.target.value){         
             case 'Most Popular':
                 sortedMenu.sort((a,b)=>{
-                    return a.id < b.id? -1:1;
+                    return +a.id < +b.id? -1:1;
                 })
                 break;
             case 'Price Low to High':
                 sortedMenu.sort((a,b)=>{
-                    return a.amount < b.amount? -1:1;
+                    return +a.amount < +b.amount? -1:1;
                 });
                 break;
             case 'Price High to Low':
                 sortedMenu.sort((a,b)=>{
-                    return a.amount > b.amount? -1:1;
+                    return +a.amount > +b.amount? -1:1;
                 })
                 break;
             default:

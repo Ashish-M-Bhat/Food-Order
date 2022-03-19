@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import './App.css';
 import NavBar from './Components/NavigationBar/NavBar';
-import MenuItemsContext, { MENU } from './Components/context-api/MenuItemsContext'
+import MenuItemsContext from './Components/context-api/MenuItemsContext'
 import { useReducer } from 'react';
 import About from './Components/About/About';
 import MenuBar from './Components/MenuBar/MenuBar';
 import ListItems from './Components/MenuItems/ListItems';
+import GetMenuItems from './GetMenuItems';
 
 const reducerCart = (cart, action) =>{
   const item = { id:action.payload.id, title:action.payload.title, amount:action.payload.amount, countOfItems:action.payload.countOfItems};
@@ -29,21 +30,15 @@ const reducerCart = (cart, action) =>{
 
 function App() {
   const [cart, dispatchCart] = useReducer(reducerCart, []);
-  const [menu, setMenu] = useState(MENU);
-  //const [isLoggedIn, setisLoggedIn] = useState(false);
-
-  // if(isLoggedIn){
-  //   localStorage.setItem('isLoggedIn',1);
-  // }
-  // else{
-  //     localStorage.setItem('isLoggedIn',0);
-  // }
+  const [menu, setMenu] = useState([]);
+  const [refreshMenu, setRefreshMenu] = useState(false);
   return (
     <div className='App'>
       <MenuItemsContext.Provider value={{menu:menu, cart:cart, dispatchCart:dispatchCart }}>
+      <GetMenuItems setMenu={setMenu} refreshMenu={refreshMenu} setRefreshMenu={setRefreshMenu} />
         <NavBar />
         <About />
-        <MenuBar setMenu={setMenu} />
+        <MenuBar setMenu={setMenu} setRefreshMenu={setRefreshMenu}/>
         <ListItems />
       </MenuItemsContext.Provider>
         

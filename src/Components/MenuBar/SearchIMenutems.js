@@ -17,14 +17,16 @@ export default function SearchIMenutems(props) {
             // If Empty Array, display "Nothing to Display!" through ListItems.js and after 2s, reset the menu and search box.
             if(!searchArray.length)
                 setTimeout(() => {
-                    props.setMenu(menuBackup);
+                    //props.setMenu(menuBackup);
+                    props.setRefreshMenu(prevValue => !prevValue);
                     setSearchInput('');
                 }, 2000);
             
             // If empty input, display all the menu items. 
             if(!event.target.value.trim().length){
                 setSearchInput('');
-                props.setMenu(menuBackup);
+                //props.setMenu(menuBackup);
+                props.setRefreshMenu(prevValue => !prevValue);
             }
                 
     }
@@ -46,7 +48,8 @@ export default function SearchIMenutems(props) {
             // If Empty Array, display "Nothing to Display!" through ListItems.js and after 2s, reset the menu and search box.
             if(!searchArray.length)
                 setTimeout(() => {
-                    props.setMenu(menuBackup);
+                    //props.setMenu(menuBackup);
+                    props.setRefreshMenu(prevValue => !prevValue);
                     setSearchInput('');
                 }, 2000);
                 
@@ -57,7 +60,8 @@ export default function SearchIMenutems(props) {
     const cancelSearch = (event) =>{
         event.preventDefault();
         setSearchInput('');
-        props.setMenu(menuBackup);
+        props.setRefreshMenu(prevValue => !prevValue);
+        //props.setMenu(menuBackup);
     }
     
     // Three elements: 1. A search box  2. Search Button and 3. Cancel Button

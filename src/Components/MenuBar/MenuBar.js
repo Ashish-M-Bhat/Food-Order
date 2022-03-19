@@ -7,7 +7,7 @@ export default function MenuBar(props) {
     return(
         <div className={cssClasses.MenuBar}>
                 <SortItems setMenu={props.setMenu} />
-                <SearchIMenutems setMenu={props.setMenu} />
+                <SearchIMenutems setMenu={props.setMenu} setRefreshMenu={props.setRefreshMenu} />
         </div>
     )
 }
