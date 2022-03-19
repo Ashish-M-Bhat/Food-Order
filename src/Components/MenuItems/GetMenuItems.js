@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
-import MenuItemsContext from './Components/context-api/MenuItemsContext';
-import useHttp from './CustomHooks/useHttp';
+import MenuItemsContext from '../context-api/MenuItemsContext';
+import useHttp from '../../CustomHooks/useHttp';
 
 export default function GetMenuItems(props) {
 

@@ -6,7 +6,7 @@ import { useReducer } from 'react';
 import About from './Components/About/About';
 import MenuBar from './Components/MenuBar/MenuBar';
 import ListItems from './Components/MenuItems/ListItems';
-import GetMenuItems from './GetMenuItems';
+import GetMenuItems from './Components/MenuItems/GetMenuItems';
 
 const reducerCart = (cart, action) =>{
   const item = { id:action.payload.id, title:action.payload.title, amount:action.payload.amount, countOfItems:action.payload.countOfItems};
