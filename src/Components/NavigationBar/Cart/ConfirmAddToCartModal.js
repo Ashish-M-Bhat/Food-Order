@@ -1,14 +1,15 @@
-import React, {useContext} from 'react';
-import MenuItemsContext from '../../context-api/MenuItemsContext';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../../../Store/CartStore';
 import Button from '../../UI/Button';
 import cssClasses from './ConfirmAddToCartModal.module.css'
 const ConfirmAddToCartModal = (props)=>{
 
-    const ctx = useContext(MenuItemsContext);
+    const dispatchCart = useDispatch();
     const yesConfirmHandler = () =>{
         props.setAnimationOnAddToCart(true);
         //Add to Cart
-        ctx.dispatchCart({payload:{id:props.id, title:props.title,amount:+props.amount, countOfItems:+props.countOfItems}})
+        dispatchCart(cartActions.addItemToCart({id:props.id, title:props.title,amount:+props.amount, countOfItems:+props.countOfItems}))
         // Close the Portal
         props.dispatchConfirmAddToCart({type:'callConfirmAddToCart',payload:{value:false}});
     }

@@ -1,25 +1,29 @@
-import React, { useState, useContext } from 'react'
-import MenuItemsContext from '../context-api/MenuItemsContext';
+import React, { useRef } from 'react'
+import { useDispatch } from 'react-redux';
+import { authActions } from '../../Store/AuthStore';
+import cssClasses from './Login.module.css'
 
 export default function Login(props) {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const emailRef = useRef();
+    const passwordRef = useRef();
+    const formRef = useRef();
     
-    const ctx = useContext(MenuItemsContext);
+    const authDispatch = useDispatch();
     
     const loginSubmitHandler = (event) =>{
-        event.preventDefault();
-        if(password.length > 5)
-            ctx.setIsLoggedIn(true);
+      event.preventDefault();
+      if(emailRef.current.value.trim() !== '' && passwordRef.current.value.trim() !== ''){
+        authDispatch(authActions.login());
+      }
+      formRef.current.reset();
     }
   return (
     <div>
-        <form>
-            <label>Email</label>
-            <input type={email} onChange={(e)=>setEmail(e)} />
-            <label>Password</label>
-            <input type={password} onChange={(e)=>setPassword(e)}/>
-            <button onClick={loginSubmitHandler}>Login </button>
+        <form ref={formRef} className={cssClasses.loginForm}>
+            <h2 style={{textAlign:'center'}}>Please Login</h2>
+            <input className={cssClasses.input} type="email" ref={emailRef} placeholder="Email"/>
+            <input className={cssClasses.input} type="password" ref={passwordRef} placeholder="Password"/>
+            <button className={cssClasses.loginButton} onClick={loginSubmitHandler}>Login </button>
         </form>
     </div>
   )

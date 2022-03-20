@@ -1,0 +1,33 @@
+.loginForm{
+    margin : 50px 350px 50px 450px;
+    height: 350px;
+    width: 50%;
+    border: 3px solid aqua ;
+    background-color: rgb(80, 133, 133);
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}    
+
+.input{
+    margin-top: 20px;
+    width: 400px;
+    height: 40px;
+    background-color: aliceblue;
+    border-radius: 30px;
+    border: 2px solid aqua;
+}
+
+.loginButton{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 43%;
+    height: 40px;
+    background-color: aliceblue;
+    border-radius: 30px;
+    border: 2px solid aqua;
+}
+.loginButton:hover{
+    background-color: blueviolet;
+}

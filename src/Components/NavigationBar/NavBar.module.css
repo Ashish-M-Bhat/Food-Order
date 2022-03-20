@@ -1,11 +1,18 @@
-.NavigationItems{
-    list-style-type: none;
+.NavigationBar{
     background-color: rgb(178, 233, 152);
     color:red;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
     position: fixed;
     top:0;
-    width: 100%
+    width: 100%;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content:space-around;
+}
+.button{
+    margin-top:20px;
+    width: 100px;
+}
+.button:hover{
+    margin-bottom:20px;
+    width: 200px;
 }

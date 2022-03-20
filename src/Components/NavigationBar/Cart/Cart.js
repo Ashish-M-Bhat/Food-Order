@@ -6,19 +6,17 @@ import Button from "../../UI/Button";
 
 export default function Cart() {
     const [callCartModal, setCallCartModal] = useState(false);
-    
+
     const closeCartModal = () =>{
         setCallCartModal(false);
     }
-
-  const ctx = useContext(MenuItemsContext);
   
   return (
     <div className={cssClasses.Cart}>
-      <Button onClick={()=>setCallCartModal(true)} disabled={false}>
+      <Button onClick={()=>setCallCartModal(true)}>
         Cart
       </Button>
-      {callCartModal && <CartModal cart={ctx.cart} closeCartModal={closeCartModal}/>}
+      {callCartModal && <CartModal closeCartModal={closeCartModal}/>}
     </div>
   );
 }

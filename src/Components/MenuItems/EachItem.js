@@ -17,7 +17,7 @@ export default function EachItem(props){
 
     const [confirmAddToCartState, dispatchConfirmAddToCart] = useReducer(reducerConfirmAddToCart, {callConfirmAddToCart:false});
     
-    const trackCountOfItems = (event) =>{
+    const trackCountOfItemsHandler = (event) =>{
         setCountOfItems(event.target.value)
     }
     
@@ -38,7 +38,7 @@ export default function EachItem(props){
                 <li><Button className={cssClasses.AddToCart} onClick={AddToCartHandler}>Add</Button></li>
                 <li>
                     <form>
-                        <input type="number" step="1" min="1" max="10" value={countOfItems} onChange={trackCountOfItems}/>
+                        <input type="number" step="1" min="1" max="10" value={countOfItems} onChange={trackCountOfItemsHandler}/>
                     </form>
                 </li>
             </ul>
