@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import useHttp from "../CustomHooks/useHttp";
 
 const cartSlice = createSlice({
     name:'cart',
@@ -10,7 +11,6 @@ const cartSlice = createSlice({
             // Check if the item already exists
             for(let eachCartItem of state.cart){
                 if(eachCartItem.id === action.payload.id){
-                    console.log("Item found")
                     eachCartItem.countOfItems += action.payload.countOfItems;
                     return;
                 }
@@ -45,6 +45,9 @@ const cartSlice = createSlice({
                     return;
                 }
             }
+        },
+        emptyCartAfterOrder(state){
+            state.cart=[]
         }
     }
 });

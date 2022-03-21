@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import reactdom from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '../../../Store/CartStore';
 import cssClasses from './CartModal.module.css'
+import PlaceOrder from './PlaceOrder';
 
 const BackDrop = (props)=>{
     return(
@@ -16,7 +18,7 @@ const Overlay = (props)=>{
     
     // Helper method for Overlay that lists each cart item
     const displayCartItems = ()=>{
-        if(cart.length ===0)
+        if(cart!== undefined && cart.length ===0)
         return(
             <h2 style={{'textAlign':'center'}}>Sir, Your Cart is Empty!</h2>
         )
@@ -43,6 +45,9 @@ const Overlay = (props)=>{
         return totalAmount;
         
     }
+    const onCartSubmitHandler = () =>{
+        props.setPlaceOrder(true);
+    }
     return (
         <div className={`${cssClasses.modal}`}>
             <header className={cssClasses.header}>
@@ -55,18 +60,21 @@ const Overlay = (props)=>{
             </div>
             <footer className={cssClasses.actions}>
             
-            <button onClick={props.closeCartModal}>Okay :(</button>
+            <button disabled={!cart.length} onClick={onCartSubmitHandler}>Place Order</button>
             </footer>
+            {props.placeOrder && <PlaceOrder closeCartModal={props.closeCartModal} />}
     </div>
     )
 }
 
-export default function CartModal(props){  
+export default function CartModal(props){ 
+    const [placeOrder, setPlaceOrder] = useState(false);
+ 
     // Return BackDtop & Overlay, using Portals
     return (
         <div>
            {reactdom.createPortal(
-               <Overlay closeCartModal={props.closeCartModal}/>, document.getElementById('modalOverlay'))}
+               <Overlay closeCartModal={props.closeCartModal} placeOrder={placeOrder} setPlaceOrder={setPlaceOrder} />, document.getElementById('modalOverlay'))}
            {reactdom.createPortal(
                <BackDrop closeCartModal={props.closeCartModal}/>, document.getElementById('backdrop'))}
         </div>
